@@ -5,7 +5,7 @@
     <packaging>jar</packaging>
 	<version>5.8-SNAPSHOT</version>
     <description>An easy to use webdav client for java</description>
-    <name>Sardine WEBDAV client</name>
+    <name>Sardine WEBDAV client (compact2)</name>
     <url>https://github.com/lookfirst/sardine</url>
     <parent>
         <groupId>org.sonatype.oss</groupId>
@@ -19,9 +19,9 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git@github.com:lookfirst/sardine.git</connection>
-        <developerConnection>scm:git:git@github.com:lookfirst/sardine.git</developerConnection>
-        <url>git@github.com:lookfirst/sardine.git</url>
+        <connection>scm:git:git@github.com:qivicon/sardine.git</connection>
+        <developerConnection>scm:git:git@github.com:qivicon/sardine.git</developerConnection>
+        <url>git@github.com:qivicon/sardine.git</url>
     </scm>
     <developers>
         <developer>
@@ -54,6 +54,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
+                    <classifier>compact2</classifier>
                     <archive>
                         <manifest>
                             <mainClass>com.googlecode.sardine.Version</mainClass>
