@@ -46,11 +46,11 @@ public class SardineUtilTest
 		String xml = SardineUtil.toXml(body);
 		checkXmlDeclaration(xml);
 		assertThat(xml, containsString("propfind>"));
-		assertThat(xml, containsString("allprop/>"));
+		assertThat(xml, containsString("allprop>"));
 	}
 
 	private void checkXmlDeclaration(final String xml)
 	{
-		assertTrue(xml.startsWith("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"));
+		assertTrue(xml.startsWith("<?xml version=\"1.0\" ?>"));
 	}
 }

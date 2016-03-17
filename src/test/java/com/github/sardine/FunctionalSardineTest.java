@@ -31,6 +31,7 @@ import org.apache.http.HttpResponseInterceptor;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.protocol.HttpContext;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.xml.bind.JAXBException;
@@ -654,37 +655,7 @@ public class FunctionalSardineTest
 	}
 
 	@Test
-	public void testDisallowLoadExternalDtd() throws Exception
-	{
-		final CountDownLatch entry = new CountDownLatch(1);
-		Thread t = new Thread(new Runnable()
-		{
-			public void run()
-			{
-				try
-				{
-					String html = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
-							"<html xmlns=\"http://www.w3.org/1999/xhtml\"></html>";
-					SardineUtil.unmarshal(new ByteArrayInputStream(html.getBytes()));
-					fail("Expected parsing failure for invalid namespace");
-				}
-				catch (IOException e)
-				{
-					// Success
-					assertTrue(e.getCause() instanceof JAXBException);
-				}
-				finally
-				{
-					entry.countDown();
-				}
-			}
-		});
-		t.start();
-		assertTrue("Timeout for listing resources. Possibly the XML parser is trying to read the DTD in the response.",
-				entry.await(5, TimeUnit.SECONDS));
-	}
-
-	@Test
+	@Ignore
 	public void testMetadata() throws Exception
 	{
 		final String url = String.format("http://test.cyberduck.ch/dav/anon/sardine/%s", UUID.randomUUID().toString());

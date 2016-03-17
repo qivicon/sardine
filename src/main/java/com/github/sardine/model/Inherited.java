@@ -1,15 +1,9 @@
 package com.github.sardine.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-     "href"
-})
-@XmlRootElement(name = "inherited")
+
+@XStreamAlias("inherited")
 public class Inherited {
 
 	private String href;

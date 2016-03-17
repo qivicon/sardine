@@ -67,6 +67,6 @@ public class MultiStatusResponseHandler extends ValidatingResponseHandler<Multis
 	protected Multistatus getMultistatus(InputStream stream)
 			throws IOException
 	{
-		return SardineUtil.unmarshal(stream);
+		return SardineUtil.unmarshal(stream, Multistatus.class);
 	}
 }

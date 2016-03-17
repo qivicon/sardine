@@ -1,9 +1,8 @@
 package com.github.sardine.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
+
 import java.util.List;
 
 
@@ -18,13 +17,11 @@ import java.util.List;
  *      &lt;/D:owner&gt;
  * </pre>
  * 
- * 
- * 
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(name = "")
-@XmlRootElement(name = "acl")
+@XStreamAlias("acl")
 public class Acl {
+
+	@XStreamImplicit
 	private List<Ace> ace;
 
 	public List<Ace> getAce() {

@@ -6,7 +6,10 @@
 //
 
 
-package com.github.sardine.model;
+package com.github.sardine.util;
+
+import com.github.sardine.model.*;
+import com.github.sardine.model.Error;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

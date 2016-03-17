@@ -7,19 +7,7 @@
 
 package com.github.sardine;
 
-import com.github.sardine.model.Creationdate;
-import com.github.sardine.model.Displayname;
-import com.github.sardine.model.Getcontentlanguage;
-import com.github.sardine.model.Getcontentlength;
-import com.github.sardine.model.Getcontenttype;
-import com.github.sardine.model.Getetag;
-import com.github.sardine.model.Getlastmodified;
-import com.github.sardine.model.Propstat;
-import com.github.sardine.model.Report;
-import com.github.sardine.model.Resourcetype;
-import com.github.sardine.model.Response;
-import com.github.sardine.model.SupportedReport;
-import com.github.sardine.model.SupportedReportSet;
+import com.github.sardine.model.*;
 import com.github.sardine.util.SardineUtil;
 import org.w3c.dom.Element;
 
@@ -138,10 +126,10 @@ public class DavResource
 		for (Propstat propstat : list)
 		{
 			if (propstat.getProp() != null) {
-				Getlastmodified glm = propstat.getProp().getGetlastmodified();
-				if ((glm != null) && (glm.getContent().size() == 1))
+				List<String> glm = propstat.getProp().getGetlastmodified();
+				if ((glm != null) && (glm.size() == 1))
 				{
-					return glm.getContent().get(0);
+					return glm.get(0);
 				}
 			}
 		}
@@ -164,10 +152,10 @@ public class DavResource
 		for (Propstat propstat : list)
 		{
 			if (propstat.getProp() != null) {
-				Creationdate gcd = propstat.getProp().getCreationdate();
-				if ((gcd != null) && (gcd.getContent().size() == 1))
+				List<String> gcd = propstat.getProp().getCreationdate();
+				if ((gcd != null) && (gcd.size() == 1))
 				{
-					return gcd.getContent().get(0);
+					return gcd.get(0);
 				}
 			}
 		}
@@ -200,10 +188,10 @@ public class DavResource
 				}
 				else
 				{
-					Getcontenttype gtt = propstat.getProp().getGetcontenttype();
-					if ((gtt != null) && (gtt.getContent().size() == 1))
+					List<String> gtt = propstat.getProp().getGetcontenttype();
+					if ((gtt != null) && (gtt.size() == 1))
 					{
-						return gtt.getContent().get(0);
+						return gtt.get(0);
 					}
 				}
 			}
@@ -227,16 +215,16 @@ public class DavResource
 		for (Propstat propstat : list)
 		{
 			if (propstat.getProp() != null) {
-				Getcontentlength gcl = propstat.getProp().getGetcontentlength();
-				if ((gcl != null) && (gcl.getContent().size() == 1))
+				List<String> gcl = propstat.getProp().getGetcontentlength();
+				if ((gcl != null) && (gcl.size() == 1))
 				{
 					try
 					{
-						return Long.parseLong(gcl.getContent().get(0));
+						return Long.parseLong(gcl.get(0));
 					}
 					catch (NumberFormatException e)
 					{
-						log.warning(String.format("Failed to parse content length %s", gcl.getContent().get(0)));
+						log.warning(String.format("Failed to parse content length %s", gcl.get(0)));
 					}
 				}
 			}
@@ -260,10 +248,10 @@ public class DavResource
 		for (Propstat propstat : list)
 		{
 			if (propstat.getProp() != null) {
-				Getetag e = propstat.getProp().getGetetag();
-				if ((e != null) && (e.getContent().size() == 1))
+				List<String> e = propstat.getProp().getGetetag();
+				if ((e != null) && (e.size() == 1))
 				{
-					return e.getContent().get(0);
+					return e.get(0);
 				}
 			}
 		}
@@ -295,10 +283,10 @@ public class DavResource
 				}
 				else
 				{
-					Getcontentlanguage gtl = propstat.getProp().getGetcontentlanguage();
-					if ((gtl != null) && (gtl.getContent().size() == 1))
+					List<String> gtl = propstat.getProp().getGetcontentlanguage();
+					if ((gtl != null) && (gtl.size() == 1))
 					{
-						return gtl.getContent().get(0);
+						return gtl.get(0);
 					}
 				}
 			}
@@ -322,10 +310,10 @@ public class DavResource
 		for (Propstat propstat : list)
 		{
 			if (propstat.getProp() != null) {
-				Displayname dn = propstat.getProp().getDisplayname();
-				if ((dn != null) && (dn.getContent().size() == 1))
+				List<String> dn = propstat.getProp().getDisplayname();
+				if ((dn != null) && (dn.size() == 1))
 				{
-					return dn.getContent().get(0);
+					return dn.get(0);
 				}
 			}
 		}

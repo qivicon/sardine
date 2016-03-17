@@ -1,13 +1,10 @@
-/*
- * copyright(c) 2014 SAS Institute, Cary NC 27513 Created on Oct 23, 2014
- */
 package com.github.sardine.model;
+
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
 import javax.xml.namespace.QName;
 
 /**
@@ -23,8 +20,7 @@ import javax.xml.namespace.QName;
     &lt;/element&gt;
  * </pre>
  */
-@XmlType(name = "")
-@XmlRootElement(name = "searchrequest")
+@XStreamAlias("searchrequest")
 public class SearchRequest
 {
 	private String language;

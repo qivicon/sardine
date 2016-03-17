@@ -99,8 +99,7 @@ public class DavPrincipal
 		{
 			this.principalType = PrincipalType.PROPERTY;
 			this.value = null;
-			this.property = new QName(principal.getProperty().getProperty().getNamespaceURI(),
-					principal.getProperty().getProperty().getLocalName());
+			this.property = principal.getProperty().getProperty();
 		}
 		else if (principal.getAll() != null || principal.getAuthenticated() != null || principal.getUnauthenticated() != null || principal.getSelf() != null)
 		{

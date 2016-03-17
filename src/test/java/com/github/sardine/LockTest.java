@@ -17,9 +17,12 @@
 package com.github.sardine;
 
 import com.github.sardine.impl.SardineException;
+import com.github.sardine.util.SardineUtil;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.List;
 import java.util.UUID;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

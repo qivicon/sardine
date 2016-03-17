@@ -21,6 +21,8 @@ import com.github.sardine.DavPrincipal;
 import com.github.sardine.DavResource;
 import com.github.sardine.model.Multistatus;
 import com.github.sardine.model.Response;
+import com.thoughtworks.xstream.converters.ConversionException;
+import com.thoughtworks.xstream.io.StreamException;
 import org.junit.Test;
 
 import javax.xml.bind.UnmarshalException;
@@ -34,19 +36,12 @@ import static org.junit.Assert.*;
  */
 public class MultiStatusResponseHandlerTest
 {
-	@Test
+	@Test(expected = StreamException.class)
 	public void testGetMultistatusFailure() throws Exception
 	{
 		MultiStatusResponseHandler handler = new MultiStatusResponseHandler();
-		try
-		{
 			handler.getMultistatus(new ByteArrayInputStream("noxml".getBytes()));
-			fail("Expected XML parsing failure");
-		}
-		catch (IOException e)
-		{
-			assertEquals(UnmarshalException.class, e.getCause().getClass());
-		}
+
 	}
 
 	@Test
@@ -80,7 +75,7 @@ public class MultiStatusResponseHandlerTest
 				"  <d:propstat xmlns:n=\"DAV:\">" +
 				"   <d:prop>" +
 				"    <n:creationdate>1970-01-01T12:00:00Z</n:creationdate>" +
-				"    <n:displayname>WebDAV test f[0xc3][0x83][0xc2][0xbc]r Cyberduck</n:displayname>" +
+				"    <n:displayname>folder1</n:displayname>" +
 				"    <n:resourcetype>" +
 				"     <n:collection/>" +
 				"    </n:resourcetype>" +
@@ -151,10 +146,16 @@ public class MultiStatusResponseHandlerTest
 			assertNotNull(r.getPropstat());
 			assertFalse(r.getPropstat().isEmpty());
 			assertTrue(new DavResource(r).isDirectory());
+			assertEquals("HTTP/1.1 200 OK", r.getPropstat().get(0).getStatus());
+			assertEquals("HTTP/1.1 200 OK", r.getPropstat().get(1).getStatus());
+
+			if(r.getPropstat().get(1).getProp().getDisplayname() != null) {
+				assertEquals(r.getPropstat().get(1).getProp().getDisplayname().get(0), "folder1");
+			}
 		}
 	}
 
-	@Test
+	@Test(expected = ConversionException.class)
 	public void testNotWelformedAlfrescoResponse() throws Exception
 	{
 		MultiStatusResponseHandler handler = new MultiStatusResponseHandler();
@@ -190,15 +191,11 @@ public class MultiStatusResponseHandlerTest
 				"  </D:propstat>" +
 				" </D:response>" +
 				"</D:multistatus>";
-		try
-		{
+
 			handler.getMultistatus(new ByteArrayInputStream(response.getBytes()));
 			fail("Expected XML parsing failure");
-		}
-		catch (Exception e)
-		{
-			assertEquals(UnmarshalException.class, e.getCause().getClass());
-		}
+
+
 	}
 
 	@Test

@@ -1,26 +1,8 @@
 package com.github.sardine;
 
-import com.github.sardine.model.Ace;
-import com.github.sardine.model.All;
-import com.github.sardine.model.Authenticated;
-import com.github.sardine.model.Bind;
-import com.github.sardine.model.Deny;
-import com.github.sardine.model.Grant;
-import com.github.sardine.model.Principal;
-import com.github.sardine.model.Privilege;
-import com.github.sardine.model.Property;
-import com.github.sardine.model.Read;
-import com.github.sardine.model.ReadAcl;
-import com.github.sardine.model.ReadCurrentUserPrivilegeSet;
-import com.github.sardine.model.Self;
-import com.github.sardine.model.SimplePrivilege;
-import com.github.sardine.model.UnBind;
-import com.github.sardine.model.Unauthenticated;
-import com.github.sardine.model.Unlock;
-import com.github.sardine.model.Write;
-import com.github.sardine.model.WriteContent;
-import com.github.sardine.model.WriteProperties;
+import com.github.sardine.model.*;
 import com.github.sardine.util.SardineUtil;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
@@ -102,7 +84,7 @@ public class DavAce
 				{
 					if (o instanceof SimplePrivilege)
 					{
-						granted.add(o.getClass().getAnnotation(XmlRootElement.class).name());
+						granted.add(o.getClass().getAnnotation(XStreamAlias.class).value());
 					}
 				}
 			}
@@ -115,7 +97,7 @@ public class DavAce
 				{
 					if (o instanceof SimplePrivilege)
 					{
-						denied.add(o.getClass().getAnnotation(XmlRootElement.class).name());
+						denied.add(o.getClass().getAnnotation(XStreamAlias.class).value());
 					}
 				}
 			}
@@ -167,7 +149,7 @@ public class DavAce
 				break;
 			case PROPERTY:
 				p.setProperty(new Property());
-				p.getProperty().setProperty(SardineUtil.createElement(principal.getProperty()));
+				//p.getProperty().setProperty(SardineUtil.createElement(principal.getProperty()));
 				break;
 			case KEY:
 				if (DavPrincipal.KEY_ALL.equals(principal.getValue()))

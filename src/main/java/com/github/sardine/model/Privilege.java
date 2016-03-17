@@ -1,31 +1,27 @@
 package com.github.sardine.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlMixed;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAliasType;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
+import com.thoughtworks.xstream.annotations.XStreamInclude;
+
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "content"
-})
-@XmlRootElement(name = "privilege")
-public class Privilege {
-    @XmlMixed
-    @XmlAnyElement(lax = true)
-	private List<Object> content;
 
-	public List<Object> getContent() {
+@XStreamAlias("privilege")
+public class Privilege {
+
+    @XStreamImplicit
+	private List<SimplePrivilege> content;
+
+	public List<SimplePrivilege> getContent() {
 		if (content==null)
-			content = new ArrayList<Object>();
+			content = new ArrayList<SimplePrivilege>();
 		return content;
 	}
 
-	public void setContent(List<Object> content) {
+	public void setContent(List<SimplePrivilege> content) {
 		this.content = content;
 	}
 
