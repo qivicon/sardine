@@ -5,17 +5,10 @@ import com.github.sardine.util.SardineUtil;
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
 import com.thoughtworks.xstream.converters.UnmarshallingContext;
-import com.thoughtworks.xstream.converters.basic.AbstractSingleValueConverter;
-import com.thoughtworks.xstream.converters.collections.AbstractCollectionConverter;
-import com.thoughtworks.xstream.converters.collections.CollectionConverter;
 import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
-import com.thoughtworks.xstream.mapper.Mapper;
-import org.apache.commons.codec.binary.StringUtils;
-import org.w3c.dom.*;
 
 import javax.xml.namespace.QName;
-import java.util.Collection;
 
 /**
  * Converter for {@link QName}.

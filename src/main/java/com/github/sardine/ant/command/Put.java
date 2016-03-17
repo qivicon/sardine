@@ -1,19 +1,14 @@
 package com.github.sardine.ant.command;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
+import com.github.sardine.Sardine;
+import com.github.sardine.ant.Command;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.types.FileSet;
 
-import com.github.sardine.Sardine;
-import com.github.sardine.ant.Command;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.*;
 
 
 /**

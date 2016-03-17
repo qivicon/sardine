@@ -25,10 +25,8 @@ import com.thoughtworks.xstream.converters.ConversionException;
 import com.thoughtworks.xstream.io.StreamException;
 import org.junit.Test;
 
-import javax.xml.bind.UnmarshalException;
 import javax.xml.namespace.QName;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 
 import static org.junit.Assert.*;
 

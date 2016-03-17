@@ -1,9 +1,8 @@
 package com.github.sardine.ant;
 
+import com.github.sardine.Sardine;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.ProjectComponent;
-
-import com.github.sardine.Sardine;
 
 
 /**

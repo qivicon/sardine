@@ -1,10 +1,8 @@
 package com.github.sardine;
 
 import com.github.sardine.model.*;
-import com.github.sardine.util.SardineUtil;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 

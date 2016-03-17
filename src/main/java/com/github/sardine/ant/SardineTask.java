@@ -2,15 +2,10 @@ package com.github.sardine.ant;
 
 import com.github.sardine.Sardine;
 import com.github.sardine.SardineFactory;
-import com.github.sardine.ant.command.Copy;
-import com.github.sardine.ant.command.CreateDirectory;
-import com.github.sardine.ant.command.Delete;
-import com.github.sardine.ant.command.Exists;
-import com.github.sardine.ant.command.RecursiveGet;
-import com.github.sardine.ant.command.Move;
-import com.github.sardine.ant.command.Put;
+import com.github.sardine.ant.command.*;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Task;
+
 import java.util.ArrayList;
 import java.util.List;
 

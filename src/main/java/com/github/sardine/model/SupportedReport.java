@@ -2,8 +2,6 @@ package com.github.sardine.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-import javax.xml.bind.annotation.*;
-
 
 /**
  * <p>Java class for anonymous complex type.

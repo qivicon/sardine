@@ -2,11 +2,6 @@ package com.github.sardine.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.namespace.QName;
-
 /**
  * <p>Java class for anonymous complex type.</p>
  *
@@ -44,26 +39,11 @@ public class SearchRequest
 		return language;
 	}
 
-	@XmlTransient
+
 	public void setLanguage(String language)
 	{
 		this.language = language;
 	}
 
-	public final String getQuery()
-	{
-		return query;
-	}
 
-	@XmlTransient
-	public void setQuery(String query)
-	{
-		this.query = query;
-	}
-
-	@XmlAnyElement
-	public JAXBElement<String> getElement()
-	{
-		return new JAXBElement<String>(new QName("DAV:", language), String.class, query);
-	}
 }

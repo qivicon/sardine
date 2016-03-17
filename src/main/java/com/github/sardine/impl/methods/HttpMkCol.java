@@ -16,9 +16,9 @@
 
 package com.github.sardine.impl.methods;
 
-import java.net.URI;
-
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
+
+import java.net.URI;
 
 /**
  * Simple class for making <code>MKCOL</code> requests.

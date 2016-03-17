@@ -16,11 +16,10 @@
 
 package com.github.sardine.impl.handler;
 
+import com.github.sardine.impl.SardineException;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.StatusLine;
-
-import com.github.sardine.impl.SardineException;
 
 /**
  * {@link org.apache.http.client.ResponseHandler} which checks whether a given resource exists.

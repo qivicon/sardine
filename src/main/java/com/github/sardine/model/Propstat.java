@@ -1,7 +1,6 @@
 package com.github.sardine.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import com.thoughtworks.xstream.converters.ConversionException;
 
 

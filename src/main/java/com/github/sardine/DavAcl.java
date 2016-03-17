@@ -1,11 +1,6 @@
 package com.github.sardine;
 
-import com.github.sardine.model.Ace;
-import com.github.sardine.model.Acl;
-import com.github.sardine.model.Group;
-import com.github.sardine.model.Owner;
-import com.github.sardine.model.Propstat;
-import com.github.sardine.model.Response;
+import com.github.sardine.model.*;
 
 import java.util.ArrayList;
 import java.util.List;

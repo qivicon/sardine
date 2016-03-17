@@ -1,5 +1,8 @@
 package com.github.sardine.ant.command;
 
+import com.github.sardine.DavResource;
+import com.github.sardine.ant.Command;
+
 import java.io.InputStream;
 import java.net.URI;
 import java.nio.file.Files;
@@ -7,9 +10,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
-
-import com.github.sardine.DavResource;
-import com.github.sardine.ant.Command;
 
 /**
  * A nice ant wrapper around sardine.list() and sardine.get().
