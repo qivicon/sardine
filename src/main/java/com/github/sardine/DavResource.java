@@ -32,13 +32,13 @@ public class DavResource
 	private static final Logger log = Logger.getLogger(DavResource.class.getName());
 
 	/**
-	 * The default content-type if {@link Getcontenttype} is not set in
+	 * The default content-type if is not set in
 	 * the {@link com.github.sardine.model.Multistatus} response.
 	 */
 	public static final String DEFAULT_CONTENT_TYPE = "application/octet-stream";
 
 	/**
-	 * The default content-lenght if {@link Getcontentlength} is not set in
+	 * The default content-lenght if is not set in
 	 * the {@link com.github.sardine.model.Multistatus} response.
 	 */
 	public static final long DEFAULT_CONTENT_LENGTH = -1;

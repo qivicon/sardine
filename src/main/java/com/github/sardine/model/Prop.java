@@ -95,7 +95,6 @@ public class Prop {
      * Gets the value of the creationdate property.
      *
      * @return possible object is
-     * {@link Creationdate }
      */
     public List<String> getCreationdate() {
         return creationdate;
@@ -105,7 +104,6 @@ public class Prop {
      * Sets the value of the creationdate property.
      *
      * @param value allowed object is
-     *              {@link Creationdate }
      */
     public void setCreationdate(List<String> value) {
         this.creationdate = value;
@@ -115,7 +113,6 @@ public class Prop {
      * Gets the value of the displayname property.
      *
      * @return possible object is
-     * {@link Displayname }
      */
     public List<String> getDisplayname() {
         return displayname;
@@ -125,7 +122,6 @@ public class Prop {
      * Sets the value of the displayname property.
      *
      * @param value allowed object is
-     *              {@link Displayname }
      */
     public void setDisplayname(List<String> value) {
         this.displayname = value;
@@ -135,7 +131,6 @@ public class Prop {
      * Gets the value of the getcontentlanguage property.
      *
      * @return possible object is
-     * {@link Getcontentlanguage }
      */
     public List<String> getGetcontentlanguage() {
         return getcontentlanguage;
@@ -145,7 +140,6 @@ public class Prop {
      * Sets the value of the getcontentlanguage property.
      *
      * @param value allowed object is
-     *              {@link Getcontentlanguage }
      */
     public void setGetcontentlanguage(List<String> value) {
         this.getcontentlanguage = value;
@@ -155,7 +149,6 @@ public class Prop {
      * Gets the value of the getcontentlength property.
      *
      * @return possible object is
-     * {@link Getcontentlength }
      */
     public List<String> getGetcontentlength() {
         return getcontentlength;
@@ -165,7 +158,6 @@ public class Prop {
      * Sets the value of the getcontentlength property.
      *
      * @param value allowed object is
-     *              {@link Getcontentlength }
      */
     public void setGetcontentlength(List<String> value) {
         this.getcontentlength = value;
@@ -175,7 +167,6 @@ public class Prop {
      * Gets the value of the getcontenttype property.
      *
      * @return possible object is
-     * {@link Getcontenttype }
      */
     public List<String> getGetcontenttype() {
         return getcontenttype;
@@ -185,7 +176,6 @@ public class Prop {
      * Sets the value of the getcontenttype property.
      *
      * @param value allowed object is
-     *              {@link Getcontenttype }
      */
     public void setGetcontenttype(List<String> value) {
         this.getcontenttype = value;
@@ -195,7 +185,6 @@ public class Prop {
      * Gets the value of the getetag property.
      *
      * @return possible object is
-     * {@link Getetag }
      */
     public List<String> getGetetag() {
         return getetag;
@@ -219,7 +208,6 @@ public class Prop {
      * Sets the value of the getlastmodified property.
      *
      * @param value allowed object is
-     *              {@link Getlastmodified }
      */
     public void setGetlastmodified(List<String> value) {
         this.getlastmodified = value;

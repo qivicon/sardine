@@ -11,10 +11,8 @@ import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -107,69 +105,33 @@ public final class SardineUtil {
         return date;
     }
 
-/*	@SuppressWarnings("unchecked")
-    public static <T> T unmarshal(InputStream in) throws IOException
-	{
-		Unmarshaller unmarshaller = createUnmarshaller();
-		try
-		{
-			XMLReader reader = XMLReaderFactory.createXMLReader();
-			try
-			{
-				reader.setFeature(
-						"http://xml.org/sax/features/external-general-entities", Boolean.FALSE);
-			}
-			catch (SAXException e)
-			{
-				; //Not all parsers will support this attribute
-			}
-			try
-			{
-				reader.setFeature(
-						"http://xml.org/sax/features/external-parameter-entities", Boolean.FALSE);
-			}
-			catch (SAXException e)
-			{
-				; //Not all parsers will support this attribute
-			}
-			try
-			{
-				reader.setFeature(
-						"http://apache.org/xml/features/nonvalidating/load-external-dtd", Boolean.FALSE);
-			}
-			catch (SAXException e)
-			{
-				; //Not all parsers will support this attribute
-			}
-			try
-			{
-				reader.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, Boolean.TRUE);
-			}
-			catch (SAXException e)
-			{
-				; //Not all parsers will support this attribute
-			}
-			return (T) unmarshaller.unmarshal(new SAXSource(reader, new InputSource(in)));
-		}
-		catch (SAXException e)
-		{
-			throw new RuntimeException(e.getMessage(), e);
-		}
-		catch (JAXBException e)
-		{
-			// Server does not return any valid WebDAV XML that matches our JAXB context
-			IOException failure = new IOException("Not a valid DAV response");
-			// Backward compatibility
-			failure.initCause(e);
-			throw failure;
-		}
-	}*/
-
+    /**
+     * Deserialize an input stream in given object.
+     *
+     * @param in the stream
+     * @param clazz the target class
+     * @param <T> the type
+     * @return the deserialized object
+     * @throws IOException
+     */
     @SuppressWarnings("unchecked")
     public static <T> T unmarshal(InputStream in, Class<T> clazz) throws IOException {
         XStream xStream = initXStream();
         xStream.processAnnotations(clazz);
         return (T) xStream.fromXML(in);
+    }
+
+    /**
+     * Create xml from object
+     *
+     * @param o An object from the model
+     * @return The XML string for the WebDAV request
+     * @throws RuntimeException When there is a JAXB error
+     */
+    public static String toXml(Object o) throws IOException {
+        XStream xStream = initXStream();
+        xStream.processAnnotations(o.getClass());
+        return xStream.toXML(o);
     }
 
     /**
@@ -183,17 +145,6 @@ public final class SardineUtil {
             throw new RuntimeException(e.getMessage(), e);
         }
         return builder.newDocument();
-    }
-
-    /**
-     * @param o An object from the model
-     * @return The XML string for the WebDAV request
-     * @throws RuntimeException When there is a JAXB error
-     */
-    public static String toXml(Object o) throws IOException {
-        XStream xStream = initXStream();
-        xStream.processAnnotations(o.getClass());
-        return xStream.toXML(o);
     }
 
     /** */
@@ -286,25 +237,4 @@ public final class SardineUtil {
 
         return xStream;
     }
-
-
-    public static void logStream(InputStream in) {
-
-        try {
-            StringBuilder sb = new StringBuilder();
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
-            String read;
-
-            while ((read = br.readLine()) != null) {
-                sb.append(read);
-            }
-
-
-            br.close();
-            System.out.println(sb.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 }
