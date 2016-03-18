@@ -1,18 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.github.lookfirst</groupId>
     <artifactId>sardine</artifactId>
     <packaging>jar</packaging>
-    <version>5.8-SNAPSHOT</version>
+    <version>5.7-SNAPSHOT</version>
     <description>An easy to use webdav client for java</description>
     <name>Sardine WEBDAV client (compact2)</name>
-    <url>https://github.com/lookfirst/sardine</url>
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-    </parent>
+
     <licenses>
         <license>
             <name>Apache 2.0</name>
@@ -24,31 +20,6 @@
         <developerConnection>scm:git:git@github.com:qivicon/sardine.git</developerConnection>
         <url>git@github.com:qivicon/sardine.git</url>
     </scm>
-    <developers>
-        <developer>
-            <name>Jon Stevens</name>
-            <id>lookfirst</id>
-            <email>latchkey@gmail.com</email>
-        </developer>
-        <developer>
-            <name>David Kocher</name>
-            <id>iterate</id>
-            <email>post@iterate.ch</email>
-            <organization>iterate GmbH</organization>
-        </developer>
-    </developers>
-    <distributionManagement>
-        <repository>
-            <id>nexus-releases</id>
-            <name>Nexus Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-        <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus snapshot repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
     <build>
         <plugins>
             <plugin>
@@ -67,7 +38,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
+                <version>3.0.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -143,6 +114,7 @@
             <version>1.9.4</version>
             <scope>provided</scope>
         </dependency>
+
         <!-- test utilities -->
         <dependency>
             <groupId>junit</groupId>
@@ -156,6 +128,7 @@
             <version>1.10.19</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-all</artifactId>
