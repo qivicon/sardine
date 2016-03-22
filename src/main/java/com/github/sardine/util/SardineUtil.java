@@ -1,5 +1,6 @@
 package com.github.sardine.util;
 
+import com.github.sardine.Sardine;
 import com.github.sardine.model.converter.ElementConverter;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.QNameMap;
@@ -229,6 +230,7 @@ public final class SardineUtil {
 
         // create xstream with staxDriver
         XStream xStream = new XStream(new StaxDriver(map));
+        xStream.setClassLoader(Sardine.class.getClassLoader());
         xStream.autodetectAnnotations(true);
         xStream.ignoreUnknownElements();
 
