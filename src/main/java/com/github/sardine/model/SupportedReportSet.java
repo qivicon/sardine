@@ -68,7 +68,7 @@ public class SupportedReportSet {
      */
     private Object readResolve() {
 
-        if (supportedReport == null) {
+        if (getSupportedReport() == null) {
             throw new ConversionException("Field 'supportedReport' must not be null!");
         }
 
